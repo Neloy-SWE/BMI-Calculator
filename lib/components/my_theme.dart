@@ -1,0 +1,51 @@
+import 'package:bmi_calculator/utils/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../utils/texts.dart';
+
+class MyTheme {
+  static final darkTheme = ThemeData(
+    // app background color
+    scaffoldBackgroundColor: MyColors.primaryColor,
+
+    // app bar theme
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+      color: MyColors.primaryColor,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontFamily: MyTexts.bolt,
+        fontSize: 24,
+      ),
+    ),
+
+
+    // text theme
+
+  );
+
+  static final lightTheme = ThemeData(
+    // app background color
+    scaffoldBackgroundColor: Colors.white,
+
+    // app bar theme
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+      ),
+      color: Colors.white,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: MyColors.primaryColor,
+        fontFamily: MyTexts.bolt,
+        fontSize: 24,
+      ),
+    ),
+  );
+}

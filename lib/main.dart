@@ -1,4 +1,6 @@
+import 'package:bmi_calculator/components/my_theme.dart';
 import 'package:bmi_calculator/screens/splash_screen.dart';
+import 'package:bmi_calculator/utils/texts.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +15,12 @@ class MyApp extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: MaterialApp(
-        home: SplashScreen(),
+        debugShowCheckedModeBanner: false,
+        title: MyTexts.title,
+        themeMode: ThemeMode.system,
+        theme: MyTheme.lightTheme,
+        darkTheme: MyTheme.darkTheme,
+        home: const SplashScreen(),
       ),
     );
   }
