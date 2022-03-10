@@ -13,6 +13,7 @@ class MyTheme {
     appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
       ),
       color: MyColors.primaryColor,
       elevation: 0,
@@ -53,7 +54,9 @@ class MyTheme {
     appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark,
       ),
+
       color: Colors.white,
       elevation: 0,
       centerTitle: true,
