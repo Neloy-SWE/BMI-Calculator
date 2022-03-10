@@ -24,9 +24,25 @@ class MyTheme {
       ),
     ),
 
-
     // text theme
+    textTheme: const TextTheme(
+      headline1: TextStyle(
+        fontSize: 45,
+        fontFamily: MyTexts.bolt,
+        color: Colors.white,
+      ),
+      bodyText1: TextStyle(
+        fontSize: 16,
+        fontFamily: MyTexts.regular,
+        color: Colors.white,
+      ),
+    ),
 
+    // icon theme
+    iconTheme: const IconThemeData(
+      color: Colors.white,
+      size: 100,
+    ),
   );
 
   static final lightTheme = ThemeData(
@@ -46,6 +62,26 @@ class MyTheme {
         fontFamily: MyTexts.bolt,
         fontSize: 24,
       ),
+    ),
+
+    // text theme
+    textTheme: const TextTheme(
+      headline1: TextStyle(
+        fontSize: 45,
+        fontFamily: MyTexts.bolt,
+        color: MyColors.primaryColor,
+      ),
+      bodyText1: TextStyle(
+        fontSize: 16,
+        fontFamily: MyTexts.regular,
+        color: MyColors.primaryColor,
+      ),
+    ),
+
+    // icon theme
+    iconTheme: const IconThemeData(
+      color: MyColors.primaryColor,
+      size: 100,
     ),
   );
 }

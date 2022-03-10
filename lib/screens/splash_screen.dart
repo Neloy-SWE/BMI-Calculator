@@ -22,7 +22,29 @@ class _SplashScreenState extends State<SplashScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Hello")
+            const Icon(Icons.speed_outlined),
+            const SizedBox(height: 50),
+            Column(
+              children: [
+                Text(
+                  MyTexts.bmiCalculator,
+                  style: Theme.of(context).textTheme.headline1,
+                ),
+                Text(
+                  MyTexts.bmiTitle,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ],
+            ),
+            const SizedBox(height: 100),
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                MediaQuery.of(context).platformBrightness == Brightness.dark
+                    ? Colors.white
+                    : MyColors.primaryColor,
+              ),
+              strokeWidth: 5,
+            ),
           ],
         ),
       ),
