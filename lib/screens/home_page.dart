@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/components/custom_toggle_button.dart';
+import 'package:bmi_calculator/utils/colors.dart';
 import 'package:bmi_calculator/utils/texts.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +37,19 @@ class _HomePageState extends State<HomePage> {
           const Icon(
             Icons.speed_outlined,
             size: 30,
+          ),
+
+          const SizedBox(height: 100),
+
+          SizedBox(
+            height: 45,
+            child: TextField(
+              style: Theme.of(context).textTheme.bodyText1,
+              cursorColor: MyColors.primaryColor,
+              decoration: InputDecoration(
+                hintText: "Hello"
+              ),
+            ),
           ),
         ],
       ),

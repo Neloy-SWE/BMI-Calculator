@@ -37,8 +37,7 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: Colors.white,
       ),
-
-      bodyText2:  TextStyle(
+      bodyText2: TextStyle(
         fontSize: 10,
         fontFamily: MyTexts.regular,
         color: Colors.white,
@@ -49,6 +48,11 @@ class MyTheme {
     iconTheme: const IconThemeData(
       color: Colors.white,
       size: 100,
+    ),
+
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.all(Colors.white),
+      trackColor: MaterialStateProperty.all(MyColors.toggleBack),
     ),
   );
 
@@ -62,7 +66,6 @@ class MyTheme {
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
       ),
-
       color: Colors.white,
       elevation: 0,
       centerTitle: true,
@@ -85,7 +88,7 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: MyColors.primaryColor,
       ),
-      bodyText2:  TextStyle(
+      bodyText2: TextStyle(
         fontSize: 10,
         fontFamily: MyTexts.regular,
         color: MyColors.primaryColor,
@@ -97,17 +100,40 @@ class MyTheme {
       color: MyColors.primaryColor,
       size: 100,
     ),
+
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.all(MyColors.primaryColor),
+      trackColor: MaterialStateProperty.all(Colors.black12),
+    ),
+
+    inputDecorationTheme: InputDecorationTheme(
+     // alignLabelWithHint: true,
+      isCollapsed: true,
+      contentPadding: EdgeInsets.only(left: 10),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(7),
+        ),
+        borderSide: BorderSide(width: 0.5, color: MyColors.primaryBack),
+      ),
+
+      focusedBorder:  OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(7),
+        ),
+        borderSide: BorderSide(width: 1, color: MyColors.primaryColor),
+      ),
+    ),
   );
 }
 
-class ThemeProvider extends ChangeNotifier{
+class ThemeProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.system;
 
   bool get isDarkMode => themeMode == ThemeMode.dark;
 
-  void toggleTheme(bool isOn){
-    themeMode = isOn? ThemeMode.dark: ThemeMode.light;
+  void toggleTheme(bool isOn) {
+    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
-
 }
