@@ -37,6 +37,12 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: Colors.white,
       ),
+
+      bodyText2:  TextStyle(
+        fontSize: 10,
+        fontFamily: MyTexts.regular,
+        color: Colors.white,
+      ),
     ),
 
     // icon theme
@@ -79,6 +85,11 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: MyColors.primaryColor,
       ),
+      bodyText2:  TextStyle(
+        fontSize: 10,
+        fontFamily: MyTexts.regular,
+        color: MyColors.primaryColor,
+      ),
     ),
 
     // icon theme
@@ -90,8 +101,13 @@ class MyTheme {
 }
 
 class ThemeProvider extends ChangeNotifier{
-  ThemeMode themeMode = ThemeMode.dark;
+  ThemeMode themeMode = ThemeMode.system;
 
   bool get isDarkMode => themeMode == ThemeMode.dark;
+
+  void toggleTheme(bool isOn){
+    themeMode = isOn? ThemeMode.dark: ThemeMode.light;
+    notifyListeners();
+  }
 
 }

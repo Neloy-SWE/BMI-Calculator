@@ -11,7 +11,8 @@ class MyToggleButton extends StatelessWidget {
 
     return Switch.adaptive(
         value: themeProvider.isDarkMode, onChanged: (value) {
-
+          final changeTheme = Provider.of<ThemeProvider>(context, listen: false);
+          changeTheme.toggleTheme(value);
     },);
   }
 }

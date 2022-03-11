@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/custom_toggle_button.dart';
 import 'package:bmi_calculator/utils/texts.dart';
 import 'package:flutter/material.dart';
 
@@ -14,14 +15,28 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(MyTexts.bmiCalculator),
+        actions: [
+          Center(
+              child: Text(
+            MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? MyTexts.dark
+                : MyTexts.light,
+            style: Theme.of(context).textTheme.bodyText2,
+          )),
+          const SizedBox(
+            width: 10,
+          ),
+          const MyToggleButton(),
+        ],
       ),
-
       body: ListView(
-        padding: const EdgeInsets.only(top: 30, left: 15, right: 15, bottom: 80),
+        padding:
+            const EdgeInsets.only(top: 30, left: 15, right: 15, bottom: 80),
         children: [
-          const Icon(Icons.speed_outlined, size: 30,),
-
-
+          const Icon(
+            Icons.speed_outlined,
+            size: 30,
+          ),
         ],
       ),
     );

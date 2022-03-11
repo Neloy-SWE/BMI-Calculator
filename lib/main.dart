@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: ChangeNotifierProvider(
         builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: MyTexts.title,
-            themeMode: ThemeMode.system,
+            themeMode: themeProvider.themeMode,
             theme: MyTheme.lightTheme,
             darkTheme: MyTheme.darkTheme,
             home: const SplashScreen(),
