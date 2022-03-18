@@ -11,7 +11,10 @@ class MyTheme {
 
     // app bar theme
     appBarTheme: const AppBarTheme(
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: IconThemeData(
+        color: Colors.white,
+        size: 25,
+      ),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.light,
@@ -31,6 +34,11 @@ class MyTheme {
       headline1: TextStyle(
         fontSize: 45,
         fontFamily: MyTexts.bolt,
+        color: Colors.white,
+      ),
+      headline2: TextStyle(
+        fontSize: 45,
+        fontFamily: MyTexts.regular,
         color: Colors.white,
       ),
       bodyText1: TextStyle(
@@ -109,6 +117,10 @@ class MyTheme {
 
     // app bar theme
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(
+        color: MyColors.primaryColor,
+        size: 25,
+      ),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
@@ -128,6 +140,11 @@ class MyTheme {
       headline1: TextStyle(
         fontSize: 45,
         fontFamily: MyTexts.bolt,
+        color: MyColors.primaryColor,
+      ),
+      headline2: TextStyle(
+        fontSize: 45,
+        fontFamily: MyTexts.regular,
         color: MyColors.primaryColor,
       ),
       bodyText1: TextStyle(

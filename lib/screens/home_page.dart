@@ -116,6 +116,7 @@ class _HomePageState extends State<HomePage> {
                   currentFocus.unfocus();
                 }
                 calculation();
+                clearText();
               },
               child: Text(
                 MyTexts.getYourBMI,
@@ -154,9 +155,14 @@ class _HomePageState extends State<HomePage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (builder) => Result(),
+          builder: (builder) => Result(bmiValue: bmiValue,),
         ),
       );
     }
+  }
+
+  void clearText(){
+    weightController.clear();
+    heightController.clear();
   }
 }
