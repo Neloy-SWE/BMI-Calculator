@@ -42,6 +42,11 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: Colors.white,
       ),
+      button: TextStyle(
+        fontSize: 16,
+        fontFamily: MyTexts.regular,
+        color: MyColors.primaryColor,
+      ),
     ),
 
     // icon theme
@@ -53,6 +58,37 @@ class MyTheme {
     switchTheme: SwitchThemeData(
       thumbColor: MaterialStateProperty.all(Colors.white),
       trackColor: MaterialStateProperty.all(MyColors.toggleBack),
+    ),
+
+    inputDecorationTheme: const InputDecorationTheme(
+      // alignLabelWithHint: true,
+      isCollapsed: true,
+      contentPadding: EdgeInsets.only(left: 10),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(7),
+        ),
+        borderSide: BorderSide(width: 0.5, color: Colors.white70),
+      ),
+
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(7),
+        ),
+        borderSide: BorderSide(width: 1, color: Colors.white),
+      ),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white,
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(7),
+          ),
+        ),
+      ),
     ),
   );
 
@@ -93,6 +129,11 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: MyColors.primaryColor,
       ),
+      button: TextStyle(
+        fontSize: 16,
+        fontFamily: MyTexts.regular,
+        color: Colors.white,
+      ),
     ),
 
     // icon theme
@@ -106,8 +147,8 @@ class MyTheme {
       trackColor: MaterialStateProperty.all(Colors.black12),
     ),
 
-    inputDecorationTheme: InputDecorationTheme(
-     // alignLabelWithHint: true,
+    inputDecorationTheme: const InputDecorationTheme(
+      // alignLabelWithHint: true,
       isCollapsed: true,
       contentPadding: EdgeInsets.only(left: 10),
       border: OutlineInputBorder(
@@ -117,11 +158,23 @@ class MyTheme {
         borderSide: BorderSide(width: 0.5, color: MyColors.primaryBack),
       ),
 
-      focusedBorder:  OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(7),
         ),
         borderSide: BorderSide(width: 1, color: MyColors.primaryColor),
+      ),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        primary: MyColors.primaryColor,
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(7),
+          ),
+        ),
       ),
     ),
   );

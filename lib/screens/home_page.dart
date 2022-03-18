@@ -2,6 +2,9 @@ import 'package:bmi_calculator/components/custom_toggle_button.dart';
 import 'package:bmi_calculator/utils/colors.dart';
 import 'package:bmi_calculator/utils/texts.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../components/my_theme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +14,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isDark = false;
+
+  TextEditingController weightController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
+
+  themeCallBack(value) {
+    final changeTheme = Provider.of<ThemeProvider>(context, listen: false);
+    changeTheme.toggleTheme(value);
+    isDark = value!;
+  }
+
+  @override
+  void dispose() {
+    weightController.dispose();
+    heightController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,15 +40,15 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Center(
               child: Text(
-            MediaQuery.of(context).platformBrightness == Brightness.dark
-                ? MyTexts.dark
-                : MyTexts.light,
+            isDark ? MyTexts.dark : MyTexts.light,
             style: Theme.of(context).textTheme.bodyText2,
           )),
           const SizedBox(
             width: 10,
           ),
-          const MyToggleButton(),
+          MyToggleButton(
+            callBackFunction: themeCallBack,
+          ),
         ],
       ),
       body: ListView(
@@ -41,13 +62,52 @@ class _HomePageState extends State<HomePage> {
 
           const SizedBox(height: 100),
 
+          // text field for weight
           SizedBox(
-            height: 45,
+            height: 55,
             child: TextField(
               style: Theme.of(context).textTheme.bodyText1,
-              cursorColor: MyColors.primaryColor,
+              cursorColor: isDark ? Colors.white : MyColors.primaryColor,
+              keyboardType: TextInputType.number,
+              controller: weightController,
+              textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                hintText: "Hello"
+                labelText: MyTexts.yourWeight,
+                labelStyle: Theme.of(context).textTheme.bodyText1,
+                hintText: MyTexts.kilogram,
+                hintStyle: Theme.of(context).textTheme.bodyText1,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+
+          // text field for height
+          SizedBox(
+            height: 55,
+            child: TextField(
+              style: Theme.of(context).textTheme.bodyText1,
+              cursorColor: isDark ? Colors.white : MyColors.primaryColor,
+              keyboardType: TextInputType.number,
+              controller: heightController,
+              textInputAction: TextInputAction.done,
+              decoration: InputDecoration(
+                labelText: MyTexts.height,
+                labelStyle: Theme.of(context).textTheme.bodyText1,
+                hintText: MyTexts.feet,
+                hintStyle: Theme.of(context).textTheme.bodyText1,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+
+          // submit button
+          SizedBox(
+            height: 55,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                MyTexts.getYourBMI,
+                style: Theme.of(context).textTheme.button,
               ),
             ),
           ),
