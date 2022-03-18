@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 
 class MyToggleButton extends StatefulWidget {
   final Function callBackFunction;
-  const MyToggleButton({Key? key, required this.callBackFunction}) : super(key: key);
+
+  const MyToggleButton({Key? key, required this.callBackFunction})
+      : super(key: key);
 
   @override
   State<MyToggleButton> createState() => _MyToggleButtonState();
@@ -18,11 +20,10 @@ class _MyToggleButtonState extends State<MyToggleButton> {
     return Switch.adaptive(
       value: themeProvider.isDarkMode,
       onChanged: (value) {
-       setState(() {
-         widget.callBackFunction(value);
-       });
+        setState(() {
+          widget.callBackFunction(value);
+        });
       },
-
     );
   }
 }

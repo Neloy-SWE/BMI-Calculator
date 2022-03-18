@@ -1,6 +1,6 @@
+import 'package:bmi_calculator/components/custom_text_field.dart';
 import 'package:bmi_calculator/components/custom_toggle_button.dart';
 import 'package:bmi_calculator/screens/result_page.dart';
-import 'package:bmi_calculator/utils/colors.dart';
 import 'package:bmi_calculator/utils/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -58,8 +58,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: ListView(
-        padding:
-            const EdgeInsets.only(top: 30, left: 15, right: 15, bottom: 80),
+        padding: const EdgeInsets.only(
+          top: 30,
+          left: 15,
+          right: 15,
+          bottom: 80,
+        ),
         children: [
           const Icon(
             Icons.speed_outlined,
@@ -69,40 +73,25 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 100),
 
           // text field for weight
-          SizedBox(
-            height: 55,
-            child: TextField(
-              style: Theme.of(context).textTheme.bodyText1,
-              cursorColor: isDark ? Colors.white : MyColors.primaryColor,
-              keyboardType: TextInputType.number,
-              controller: weightController,
-              textInputAction: TextInputAction.next,
-              decoration: InputDecoration(
-                labelText: MyTexts.yourWeight,
-                labelStyle: Theme.of(context).textTheme.bodyText1,
-                hintText: MyTexts.kilogram,
-                hintStyle: Theme.of(context).textTheme.subtitle1,
-              ),
-            ),
+          MyTextField(
+            isDark: isDark,
+            controller: weightController,
+            textInputType: TextInputType.number,
+            textInputAction: TextInputAction.next,
+            hintText: MyTexts.kilogram,
+            labelText: MyTexts.yourWeight,
           ),
+
           const SizedBox(height: 20),
 
           // text field for height
-          SizedBox(
-            height: 55,
-            child: TextField(
-              style: Theme.of(context).textTheme.bodyText1,
-              cursorColor: isDark ? Colors.white : MyColors.primaryColor,
-              keyboardType: TextInputType.number,
-              controller: heightController,
-              textInputAction: TextInputAction.done,
-              decoration: InputDecoration(
-                labelText: MyTexts.height,
-                labelStyle: Theme.of(context).textTheme.bodyText1,
-                hintText: MyTexts.feet,
-                hintStyle: Theme.of(context).textTheme.subtitle1,
-              ),
-            ),
+          MyTextField(
+            isDark: isDark,
+            controller: heightController,
+            textInputType: TextInputType.number,
+            textInputAction: TextInputAction.done,
+            hintText: MyTexts.feet,
+            labelText: MyTexts.height,
           ),
           const SizedBox(height: 20),
 
@@ -155,13 +144,15 @@ class _HomePageState extends State<HomePage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (builder) => Result(bmiValue: bmiValue,),
+          builder: (builder) => Result(
+            bmiValue: bmiValue,
+          ),
         ),
       );
     }
   }
 
-  void clearText(){
+  void clearText() {
     weightController.clear();
     heightController.clear();
   }
