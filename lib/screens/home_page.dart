@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/components/custom_toggle_button.dart';
+import 'package:bmi_calculator/screens/result_page.dart';
 import 'package:bmi_calculator/utils/colors.dart';
 import 'package:bmi_calculator/utils/texts.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class _HomePageState extends State<HomePage> {
   String weight = "";
   String height = "";
   String errorMessage = "";
+  double inMeter = 0;
+  double bmiValue = 0;
 
   TextEditingController weightController = TextEditingController();
   TextEditingController heightController = TextEditingController();
@@ -122,29 +125,38 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 15),
 
-
           // error text
-          Text(errorMessage, textAlign: TextAlign.center, style: Theme.of(context).textTheme.subtitle2,),
-
+          Text(
+            errorMessage,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
         ],
       ),
     );
   }
 
-  void calculation(){
+  void calculation() {
     weight = weightController.text.trim();
     height = heightController.text.trim();
 
-    if(weight == "" || height ==""){
+    if (weight == "" || height == "") {
       setState(() {
-        errorMessage=MyTexts.condition;
+        errorMessage = MyTexts.condition;
       });
-    }
-    else{
+    } else {
       setState(() {
-        errorMessage="";
+        errorMessage = "";
+      });
+      inMeter = (double.parse(height)) / 3.28;
+      bmiValue = (double.parse(weight)) / (inMeter * inMeter);
 
-      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (builder) => Result(),
+        ),
+      );
     }
   }
 }

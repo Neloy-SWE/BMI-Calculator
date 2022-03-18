@@ -13,4 +13,5 @@ class MyTexts {
   static const String feet = "Feet";
   static const String getYourBMI = "Get your BMI";
   static const String condition = "Weight or height missing or Invalid input";
+  static const String yourBMI = "Your BMI";
 }
