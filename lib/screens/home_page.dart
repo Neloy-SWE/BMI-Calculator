@@ -15,6 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isDark = false;
+  String weight = "";
+  String height = "";
+  String errorMessage = "";
 
   TextEditingController weightController = TextEditingController();
   TextEditingController heightController = TextEditingController();
@@ -75,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 labelText: MyTexts.yourWeight,
                 labelStyle: Theme.of(context).textTheme.bodyText1,
                 hintText: MyTexts.kilogram,
-                hintStyle: Theme.of(context).textTheme.bodyText1,
+                hintStyle: Theme.of(context).textTheme.subtitle1,
               ),
             ),
           ),
@@ -94,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                 labelText: MyTexts.height,
                 labelStyle: Theme.of(context).textTheme.bodyText1,
                 hintText: MyTexts.feet,
-                hintStyle: Theme.of(context).textTheme.bodyText1,
+                hintStyle: Theme.of(context).textTheme.subtitle1,
               ),
             ),
           ),
@@ -104,15 +107,44 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 55,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus) {
+                  currentFocus.unfocus();
+                }
+                calculation();
+              },
               child: Text(
                 MyTexts.getYourBMI,
                 style: Theme.of(context).textTheme.button,
               ),
             ),
           ),
+          const SizedBox(height: 15),
+
+
+          // error text
+          Text(errorMessage, textAlign: TextAlign.center, style: Theme.of(context).textTheme.subtitle2,),
+
         ],
       ),
     );
+  }
+
+  void calculation(){
+    weight = weightController.text.trim();
+    height = heightController.text.trim();
+
+    if(weight == "" || height ==""){
+      setState(() {
+        errorMessage=MyTexts.condition;
+      });
+    }
+    else{
+      setState(() {
+        errorMessage="";
+
+      });
+    }
   }
 }

@@ -47,6 +47,16 @@ class MyTheme {
         fontFamily: MyTexts.regular,
         color: MyColors.primaryColor,
       ),
+      subtitle1: TextStyle(
+        fontSize: 12,
+        fontFamily: MyTexts.regular,
+        color: Colors.white70,
+      ),
+      subtitle2: TextStyle(
+        fontSize: 10,
+        fontFamily: MyTexts.bolt,
+        color: Colors.red,
+      ),
     ),
 
     // icon theme
@@ -133,6 +143,16 @@ class MyTheme {
         fontSize: 16,
         fontFamily: MyTexts.regular,
         color: Colors.white,
+      ),
+      subtitle1: TextStyle(
+        fontSize: 12,
+        fontFamily: MyTexts.regular,
+        color: MyColors.primaryBack,
+      ),
+      subtitle2: TextStyle(
+        fontSize: 10,
+        fontFamily: MyTexts.bolt,
+        color: Colors.red,
       ),
     ),
 
